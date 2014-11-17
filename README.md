@@ -1,1 +1,2 @@
-#Socket - The Source Server manager for linux
+#Socket - The SRCDS Manager
+
