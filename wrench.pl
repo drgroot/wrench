@@ -64,8 +64,7 @@ sub makeStartScript{
 
 	}
 	close(INFO);
-
-	print "$startScript\n";
+	`screen -dmS $srcds $startScript`;
 }
 
 
