@@ -1,0 +1,1 @@
+../../master/tf2/tf/item_whitelist_example.txt

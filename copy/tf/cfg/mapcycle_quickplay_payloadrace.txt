@@ -1,0 +1,1 @@
+../../../master/tf2/tf/cfg/mapcycle_quickplay_payloadrace.txt

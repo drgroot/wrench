@@ -1,0 +1,1 @@
+../../../master/tf2/tf/cfg/mapcycle_doomsday_event_247.txt
