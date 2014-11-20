@@ -56,10 +56,10 @@ sub makeStartScript{
 		my ( $flag, $value ) = split(":", $line);
 		
 		if(! defined $value ){
-			$startScript .= "-$flag ";
+			$startScript .= "$flag ";
 		}
 		else{
-			$startScript .= "+$flag $value ";
+			$startScript .= "$flag $value ";
 		}
 
 	}
