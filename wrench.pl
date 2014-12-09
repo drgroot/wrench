@@ -12,7 +12,7 @@ opendir(DIR,".",) or die $!;
 while( my $file = readdir(DIR) ){
 	next unless (-d "$file");
 	next if($file =~ m/^\./);
-	next if ($file eq "master" || $file eq "copy" || $file eq "all");
+	next if ($file eq "master" || $file eq "copy" || $file eq "all" || $file eq "test");
 	next unless (-e "$file/wrench.config");
 	$srcds_list{$file} = 1;
 }
