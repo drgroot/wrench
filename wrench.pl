@@ -12,7 +12,7 @@ opendir(DIR,".",) or die $!;
 while( my $file = readdir(DIR) ){
 	next unless (-d "$file");
 	next if($file =~ m/^\./);
-	next if ($file eq "master" || $file eq "copy" || $file eq "all" || $file eq "test");
+	next if ($file eq "master" || $file eq "copy" || $file eq "all");
 	next unless (-e "$file/wrench.config");
 	$srcds_list{$file} = 1;
 }
@@ -28,6 +28,7 @@ sub start{
 	my $srcds = $_[1];
 	if( $srcds eq "all" ){
 		foreach $srcds (keys %srcds_list){
+			next if $srcds eq "test";
 			next if isRunning($srcds);
 			makeStartScript($srcds);
 		}
