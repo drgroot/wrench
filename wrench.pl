@@ -1,8 +1,7 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use strict;
 use warnings;
 use Getopt::Long;
-use Data::Dumper;
 
 my %srcds_list = ();
 my $startScript = "";
@@ -22,7 +21,19 @@ GetOptions(
 	 "start=s"	=> \&start
 	,"status=s" => \&status
 	,"list"		=> \&list
+	,"daily"	=> \&daily_scripts
 );
+
+sub daily_scripts{
+	# clean log files
+	foreach my $srcds ( keys %srcds_list ){
+		system("find $srcds/tf/logs/ -mtime +2 -delete") >> 8 and print "Couldn't clean logs: $?\n";
+		system("find $srcds/tf/addons/sourcemod/logs/ -mtime +2 -delete") >> 8 and print "Couldn't clean sourcemod logs: $?\n";
+	}
+
+	# update sourcemod
+	system("cd master/tf2/tf; git pull origin master") >> 8 and print "Couldn't update Sourcemod: $?\n";
+}
 
 sub start{
 	my $srcds = $_[1];

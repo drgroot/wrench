@@ -1,0 +1,1 @@
+../../../../../master/tf2/tf/addons/sourcemod/configs/adminmenu_cfgs.txt
